@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ListSurah = (props) => {
-  console.log(props);
   return (
     <div
       className="rows-surah"

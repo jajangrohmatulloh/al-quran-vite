@@ -22,6 +22,8 @@ body {
 header {
   background: linear-gradient(to bottom, #628d29, #264620);
   color: white;
+  height: 72px;
+  font-size: 28px;
   width: 100%;
   padding: 10px;
   position: fixed;
@@ -33,12 +35,12 @@ header {
 }
 header .back-button {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
-  cursor: pointer;
 }
-header .back-button:hover {
+header .back-button img:hover {
   opacity: 40%;
+  cursor: pointer;
 }
 header .detail-surah {
   display: grid;
@@ -63,10 +65,10 @@ header .globe {
   display: flex;
   justify-content: right;
   align-items: center;
-  cursor: pointer;
 }
-header .globe:hover {
+header .globe img:hover {
   opacity: 40%;
+  cursor: pointer;
 }
 
 .image {
@@ -80,7 +82,7 @@ header .globe:hover {
 }
 
 .container {
-  margin-top: 75px;
+  margin-top: 72px;
 }
 
 .rows-surah {
@@ -181,7 +183,7 @@ header .globe:hover {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.container-box-select .box .menu-items:hover {
+.container-box-select .box .menu-items:hover, .container-box-select .box .menu-items:active {
   background-color: #ebdaaf;
 }
 .container-box-select .box .menu-item {
@@ -190,6 +192,9 @@ header .globe:hover {
   cursor: pointer;
   transition: all 200ms;
   margin-block: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .container-box-select .box .menu-item::-moz-selection {
   background-color: transparent;
@@ -354,7 +359,7 @@ body::-webkit-scrollbar-button {
     width: 100%;
     border-bottom: 1px solid black;
     cursor: pointer;
-    font-size: 28px;
+    font-size: 24px;
   }
   .rows-surah span {
     position: absolute;

@@ -3,31 +3,12 @@ import { useRef } from 'react';
 
 const ListAyat = (props) => {
   const button = useRef();
-  const audio = useRef();
 
   function toFarsiNumber(n) {
     const farsiDigits = ['۰', '۱', '۲', '۳', '٤', '۵', '٦', '۷', '۸', '۹'];
 
     return n.toString().replace(/\d/g, (x) => farsiDigits[x]);
   }
-
-  function handlePlay() {
-    if (button.current.className === 'play') {
-      button.current.className = 'play pause';
-      audio.current.play();
-    } else {
-      button.current.className = 'play';
-      audio.current.pause();
-    }
-    console.log(button);
-  }
-
-  const handleEnded = () => {
-    button.current.className = 'play';
-    audio.current.src = `https://cdn.islamic.network/quran/audio/128/ar.alafasy/${++props
-      .ayat.number}.mp3`;
-    audio.current.play();
-  };
 
   return (
     <>

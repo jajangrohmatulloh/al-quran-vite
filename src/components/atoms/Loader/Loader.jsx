@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Loader = (props) => {
+const Loader = () => {
     return (
         <div className="preloader-wrapper big active">
           <div className="spinner-layer spinner-green-only">

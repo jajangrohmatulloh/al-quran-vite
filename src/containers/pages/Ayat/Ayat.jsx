@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
+import backButton from '../../../assets/back-button.svg';
+import chevronDown from '../../../assets/chevron-down.svg';
+import globe from '../../../assets/globe.svg';
 import ListAyat from '../../../components/atoms/ListAyat/ListAyat';
 import Loader from '../../../components/atoms/Loader/Loader';
-import backButton from '../../../assets/back-button.svg';
-import globe from '../../../assets/globe.svg';
-import chevronDown from '../../../assets/chevron-down.svg';
-import BackButton from '../../../components/atoms/BackButton/BackButton';
-import Globe from '../../../components/atoms/Globe/Globe';
-import ChevronDown from '../../../components/atoms/ChevronDown/ChevronDown';
 import withRouter from '../withRouter';
 
 class Ayat extends Component {
@@ -27,7 +24,6 @@ class Ayat extends Component {
     translateFilter: [],
   };
   componentDidMount() {
-    console.log(this.props);
     fetch(
       `https://api.alquran.cloud/v1/surah/${this.props.params.number}/en.transliteration`
     )
@@ -206,16 +202,14 @@ class Ayat extends Component {
               translateFilter: this.state.translate,
             });
           }
-          // }
         );
       });
   }
   handlePlay = (buttonPlay) => {
-    this.setState(
-      (prevState) => ({
+    this.setState({
         number: buttonPlay.current.dataset.number,
         button: buttonPlay,
-      }),
+      },
       () => {
         const classPlay = Array.from(document.getElementsByClassName('play'));
         if (buttonPlay.current.className === 'play') {
@@ -243,19 +237,15 @@ class Ayat extends Component {
       return;
     }
     this.setState({ number: ++this.state.number }, () => {
-      console.log(classPlay[classPlay.length - 1].dataset.number);
-      console.log(this.state.number);
       classPlay.forEach((i) => {
         if (i.classList.contains('pause')) i.classList.remove('pause');
         if (i.dataset.number == this.state.number) {
           i.classList.add('pause');
-          window.scrollTo({ top: i.offsetTop - 120, behavior: 'smooth' });
+          let rowAyat = i.parentElement.parentElement.parentElement
+          window.scrollTo({ top: rowAyat.offsetTop - 72, behavior: 'smooth' });
           this.audioRef.current.play();
         }
       });
-      //    if(this.state.number == classPlay[classPlay.length - 1].dataset.number) {
-      //     console.log('dffdh')
-      //    }
     });
   };
 
@@ -290,7 +280,6 @@ class Ayat extends Component {
   };
 
   handleTranslate = (event) => {
-    console.log(event.target.dataset.id);
     fetch(
       `https://api.alquran.cloud/v1/surah/${this.props.params.number}/${event.target.dataset.id}`
     )
@@ -299,8 +288,7 @@ class Ayat extends Component {
         this.setState(
           {
             translation: res.data.ayahs,
-          },
-          () => console.log(this.state.translation)
+          }
         );
       });
     const selectBox = document.getElementsByClassName(
@@ -319,38 +307,18 @@ class Ayat extends Component {
     });
   };
 
-  // handlePaused = () => {
-  //     const classPlay = Array.from(document.getElementsByClassName('play'))
-
-  //             classPlay.forEach(i => {
-  //                 console.log(i)
-  //                 if (i.classList.contains('pause'))
-  //                 i.classList.remove('pause')
-  //             })
-  // }
-
-  // handlePlayed = () => {
-  //     const classPlay = Array.from(document.getElementsByClassName('play'))
-
-  //             classPlay.forEach(i => {
-  //                 if (i.dataset.number == this.state.number)
-  //                 i.classList.add('pause')
-
-  //             })
-  // }
   render() {
     return (
       <>
         <header>
-          <div className="back-button" onClick={() => this.props.navigate('/')}>
-            {/* <img src={backButton} alt="" /> */}
-            <BackButton />
+          <div className="back-button">
+            <img src={backButton} alt="" onClick={() => this.props.navigate('/')}/>
           </div>
           <div className="detail-surah">
             <div className="surah">
-              {this.state.lists.englishName}&nbsp;
+              {this.state.lists.englishName}
+              {/* &nbsp; */}
               {/* <img src={chevronDown} alt="" /> */}
-              <ChevronDown />
             </div>
             {/* <div className="ayat">
                             {this.state.lists.numberOfAyahs}&nbsp;Ayahs
@@ -362,9 +330,8 @@ class Ayat extends Component {
                             asd
                         </div> */}
           </div>
-          <div className="globe" onClick={this.handleGlobe}>
-            {/* <img src={globe} alt="" /> */}
-            <Globe />
+          <div className="globe">
+            <img src={globe} alt="" onClick={this.handleGlobe}/>
           </div>
         </header>
         <div className="container" ref={this.containerSurah}>
@@ -427,7 +394,6 @@ class Ayat extends Component {
                     <div
                       className="menu-item"
                       data-id={e.identifier}
-                      //   onClick={(e) => this.handleTranslate(e)}
                     >
                       {/* {this.state.translate[i].language !=
                     this.state.translate[
@@ -439,7 +405,6 @@ class Ayat extends Component {
                     <div
                       className="menu-item"
                       data-id={e.identifier}
-                      // onClick={(e) => this.handleTranslate(e)}
                     >
                       {e.name}
                     </div>
