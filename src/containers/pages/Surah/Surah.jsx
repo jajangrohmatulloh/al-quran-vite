@@ -11,7 +11,7 @@ class Surah extends Component {
   };
 
   componentDidMount() {
-    fetch('http://api.alquran.cloud/v1/surah')
+    fetch('https://api.alquran.cloud/v1/surah')
       .then((res) => res.json())
       .then((res) => {
         this.setState({

@@ -29,14 +29,14 @@ class Ayat extends Component {
   componentDidMount() {
     console.log(this.props);
     fetch(
-      `http://api.alquran.cloud/v1/surah/${this.props.params.number}/en.transliteration`
+      `https://api.alquran.cloud/v1/surah/${this.props.params.number}/en.transliteration`
     )
       .then((res) => res.json())
       .then((res) => {
         this.setState({
           transliteration: res.data.ayahs,
         });
-        fetch(`http://api.alquran.cloud/v1/surah/${this.props.params.number}`)
+        fetch(`https://api.alquran.cloud/v1/surah/${this.props.params.number}`)
           .then((res) => res.json())
           .then((res) => {
             this.setState({
@@ -46,7 +46,7 @@ class Ayat extends Component {
             });
           });
       });
-    fetch(`http://api.alquran.cloud/v1/edition/type/translation`)
+    fetch(`https://api.alquran.cloud/v1/edition/type/translation`)
       .then((res) => res.json())
       .then((res) => {
         this.setState(
@@ -292,7 +292,7 @@ class Ayat extends Component {
   handleTranslate = (event) => {
     console.log(event.target.dataset.id);
     fetch(
-      `http://api.alquran.cloud/v1/surah/${this.props.params.number}/${event.target.dataset.id}`
+      `https://api.alquran.cloud/v1/surah/${this.props.params.number}/${event.target.dataset.id}`
     )
       .then((res) => res.json())
       .then((res) => {
