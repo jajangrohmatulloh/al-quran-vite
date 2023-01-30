@@ -1,0 +1,29 @@
+.container-audio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+}
+
+.audio__circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.audio--play {
+  height: 24px;
+  border: 12px solid transparent;
+  border-right: 0px solid transparent;
+  border-left: 20px solid black;
+  transition: border 300ms ease;
+}
+
+.audio--pause {
+  border: 0px solid transparent;
+  border-left: 20px double black;
+}

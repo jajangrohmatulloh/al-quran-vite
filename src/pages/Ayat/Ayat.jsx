@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import backButton from '../../assets/icons/back-button.svg';
 import globe from '../../assets/icons/globe.svg';
-import ListAyat from '../../components/atoms/ListAyat/ListAyat';
+import ListAyat from '../../components/atoms/ListAyat/RowAyat';
 import Loader from '../../components/atoms/Loader/Loader';
 import withRouter from '../withRouter';
 
@@ -15,7 +15,7 @@ class Ayat extends Component {
     lists: [],
     ayat: [],
     load: true,
-    number: '1',
+    number: '0',
     translate: [],
     transliteration: [],
     translation: [],
@@ -211,17 +211,23 @@ class Ayat extends Component {
         button: buttonPlay,
       },
       () => {
-        const classPlay = Array.from(document.getElementsByClassName('play'));
-        if (buttonPlay.current.className === 'play') {
-          classPlay.forEach((i) => {
-            if (i.classList.contains('pause')) i.classList.remove('pause');
-          });
-          buttonPlay.current.className = 'play pause';
-          this.audioRef.current.play();
-        } else {
-          buttonPlay.current.className = 'play';
+        console.log(this.state.ayat);
+        if (!buttonPlay.current.className.includes('false')) {
           this.audioRef.current.pause();
+        } else {
+          this.audioRef.current.play();
         }
+        //   const classPlay = Array.from(document.getElementsByClassName('play'));
+        // if (buttonPlay.current.className === 'play') {
+        //     classPlay.forEach((i) => {
+        //       if (i.classList.contains('pause')) i.classList.remove('pause');
+        //     });
+        //     buttonPlay.current.className = 'play pause';
+        // this.audioRef.current.play();
+        //   } else {
+        //     buttonPlay.current.className = 'play';
+        //     this.audioRef.current.pause();
+        //   }
       }
     );
   };
@@ -229,23 +235,32 @@ class Ayat extends Component {
   handleEnded = () => {
     const classPlay = Array.from(document.getElementsByClassName('play'));
 
-    if (this.state.number == classPlay[classPlay.length - 1].dataset.number) {
-      classPlay.forEach((i) => {
-        if (i.classList.contains('pause')) i.classList.remove('pause');
-      });
+    // if (this.state.number == classPlay[classPlay.length - 1].dataset.number) {
+    //   classPlay.forEach((i) => {
+    //     if (i.classList.contains('pause')) i.classList.remove('pause');
+    //   });
+    //   this.audioRef.current.pause();
+    //   return;
+    // }
+    if (
+      this.state.number == this.state.ayat[this.state.ayat.length - 1].number
+    ) {
       this.audioRef.current.pause();
+      this.setState({ number: 0 });
       return;
     }
     this.setState({ number: ++this.state.number }, () => {
-      classPlay.forEach((i) => {
-        if (i.classList.contains('pause')) i.classList.remove('pause');
-        if (i.dataset.number == this.state.number) {
-          i.classList.add('pause');
-          let rowAyat = i.parentElement.parentElement.parentElement;
-          window.scrollTo({ top: rowAyat.offsetTop - 72, behavior: 'smooth' });
-          this.audioRef.current.play();
-        }
-      });
+      // classPlay.forEach((i) => {
+      //   if (i.classList.contains('pause')) i.classList.remove('pause');
+      //   if (i.dataset.number == this.state.number) {
+      //     i.classList.add('pause');
+      //     let rowAyat = i.parentElement.parentElement.parentElement;
+      //     window.scrollTo({ top: rowAyat.offsetTop - 72, behavior: 'smooth' });
+      //     this.audioRef.current.play();
+      //   }
+
+      this.audioRef.current.play();
+      console.log(this.state.button);
     });
   };
 
@@ -350,6 +365,7 @@ class Ayat extends Component {
               transliteration={this.state.transliteration[i]}
               translation={this.state.translation[i]}
               handlePlay={this.handlePlay}
+              number={this.state.number}
             />
           ))}
         </div>
@@ -416,7 +432,9 @@ class Ayat extends Component {
         ></div>
 
         <audio
-          src={`https://cdn.islamic.network/quran/audio/128/ar.alafasy/${this.state.number}.mp3`}
+          src={`https://cdn.islamic.network/quran/audio/128/ar.alafasy/${
+            this.state.number == 0 ? 1 : this.state.number
+          }.mp3`}
           ref={this.audioRef}
           onEnded={this.handleEnded}
         ></audio>
