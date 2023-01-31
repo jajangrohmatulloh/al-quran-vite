@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import ListSurah from '../../components/atoms/ListSurah/ListSurah';
-import Loader from '../../components/atoms/Loader/Loader';
-import alquran from '../../assets/images/al-quran.png';
-import withRouter from '../withRouter';
+import RowSurah from '../components/atoms/RowSurah';
+import Loader from '../components/atoms/Loader';
+import alquran from '../assets/images/al-quran.png';
+import withRouter from './withRouter';
 
 class Surah extends Component {
   state = {
@@ -48,7 +48,7 @@ class Surah extends Component {
           </div>
 
           {this.state.lists.map((list) => (
-            <ListSurah data={list} goDetail={this.handleClick} />
+            <RowSurah data={list} goDetail={this.handleClick} />
           ))}
         </div>
       </>

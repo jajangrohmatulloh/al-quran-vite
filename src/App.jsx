@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './materialize.min.css';
-import Ayat from './pages/Ayat/Ayat';
-import Surah from './pages/Surah/Surah';
+import Ayat from './pages/Ayat';
+import Surah from './pages/Surah';
 import './App.css';
 
 function App() {

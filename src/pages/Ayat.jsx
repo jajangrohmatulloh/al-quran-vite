@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import backButton from '../../assets/icons/back-button.svg';
-import globe from '../../assets/icons/globe.svg';
-import ListAyat from '../../components/atoms/ListAyat/RowAyat';
-import Loader from '../../components/atoms/Loader/Loader';
-import withRouter from '../withRouter';
+import backButton from '../assets/icons/back-button.svg';
+import globe from '../assets/icons/globe.svg';
+import Loader from '../components/atoms/Loader';
+import RowAyat from '../components/atoms/RowAyat';
+import withRouter from './withRouter';
 
 class Ayat extends Component {
   constructor(props) {
@@ -358,7 +358,7 @@ class Ayat extends Component {
             </div>
           )}
           {this.state.ayat.map((list, i) => (
-            <ListAyat
+            <RowAyat
               key={list.number}
               ayat={list}
               surah={this.props.params.number}

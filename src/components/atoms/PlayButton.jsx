@@ -8,9 +8,14 @@ const PlayButton = (props) => {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
-    if (!audioButtonRef.current.className.includes('false')) {
+    if (!audioButtonRef.current.classList.contains('false')) {
       setIsMatch(false);
       return;
+    }
+    if (props.currentNumber == props.number) {
+      const rowAyat =
+        audioButtonRef.current.parentElement.parentElement.parentElement;
+      window.scrollTo({ top: rowAyat.offsetTop - 72, behavior: 'smooth' });
     }
     const isSame = props.currentNumber == props.number;
     setIsMatch(isSame);
@@ -23,13 +28,15 @@ const PlayButton = (props) => {
     <div className={styles['container-audio']}>
       <div
         className={styles['audio__circle']}
-        onClick={() => props.handlePlay(audioButtonRef)}
+        onClick={() => {
+          props.handlePlay(audioButtonRef);
+          handle();
+        }}
       >
         <div
           className={
             styles['audio--play'] + ' ' + (isMatch && styles['audio--pause'])
           }
-          onClick={handle}
           ref={audioButtonRef}
           data-number={props.number}
         ></div>
