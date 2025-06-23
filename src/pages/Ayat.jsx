@@ -217,17 +217,6 @@ class Ayat extends Component {
         } else {
           this.audioRef.current.play();
         }
-        //   const classPlay = Array.from(document.getElementsByClassName('play'));
-        // if (buttonPlay.current.className === 'play') {
-        //     classPlay.forEach((i) => {
-        //       if (i.classList.contains('pause')) i.classList.remove('pause');
-        //     });
-        //     buttonPlay.current.className = 'play pause';
-        // this.audioRef.current.play();
-        //   } else {
-        //     buttonPlay.current.className = 'play';
-        //     this.audioRef.current.pause();
-        //   }
       }
     );
   };
@@ -235,13 +224,6 @@ class Ayat extends Component {
   handleEnded = () => {
     const classPlay = Array.from(document.getElementsByClassName('play'));
 
-    // if (this.state.number == classPlay[classPlay.length - 1].dataset.number) {
-    //   classPlay.forEach((i) => {
-    //     if (i.classList.contains('pause')) i.classList.remove('pause');
-    //   });
-    //   this.audioRef.current.pause();
-    //   return;
-    // }
     if (
       this.state.number == this.state.ayat[this.state.ayat.length - 1].number
     ) {
@@ -250,15 +232,6 @@ class Ayat extends Component {
       return;
     }
     this.setState({ number: ++this.state.number }, () => {
-      // classPlay.forEach((i) => {
-      //   if (i.classList.contains('pause')) i.classList.remove('pause');
-      //   if (i.dataset.number == this.state.number) {
-      //     i.classList.add('pause');
-      //     let rowAyat = i.parentElement.parentElement.parentElement;
-      //     window.scrollTo({ top: rowAyat.offsetTop - 72, behavior: 'smooth' });
-      //     this.audioRef.current.play();
-      //   }
-
       this.audioRef.current.play();
       console.log(this.state.button);
     });
@@ -332,20 +305,7 @@ class Ayat extends Component {
             />
           </div>
           <div className="detail-surah">
-            <div className="surah">
-              {this.state.lists.englishName}
-              {/* &nbsp; */}
-              {/* <img src={chevronDown} alt="" /> */}
-            </div>
-            {/* <div className="ayat">
-                            {this.state.lists.numberOfAyahs}&nbsp;Ayahs
-                        </div>
-                        <div className="juz">
-                            dsfd
-                        </div>
-                        <div className="revelation">
-                            asd
-                        </div> */}
+            <div className="surah">{this.state.lists.englishName}</div>
           </div>
           <div className="globe">
             <img src={globe} alt="" onClick={this.handleGlobe} />
@@ -388,13 +348,6 @@ class Ayat extends Component {
             <div className="column">Version</div>
           </div>
           <div className="box">
-            {/* <div
-              className="menu-item"
-              onClick={(e) => this.handleClearTranslate(e)}
-            >
-              none
-            </div> */}
-
             <div
               className="menu-item clear"
               onClick={(e) => this.handleClearTranslate(e)}
@@ -410,10 +363,6 @@ class Ayat extends Component {
                     onClick={(e) => this.handleTranslate(e)}
                   >
                     <div className="menu-item" data-id={e.identifier}>
-                      {/* {this.state.translate[i].language !=
-                    this.state.translate[
-                      i == this.state.translate.length - 1 ? i : i + 1
-                    ].language && e.language} */}
                       {e.language}
                     </div>
 
