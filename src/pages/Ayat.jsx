@@ -335,6 +335,7 @@ class Ayat extends Component {
               <input
                 type="text"
                 placeholder="Search by language"
+                className="language-filter"
                 onChange={this.handleFilter}
               />
             </div>

@@ -7,12 +7,16 @@ const RowSurah = (props) => {
       className="rows-surah"
       onClick={() => props.goDetail(props.data.number)}
     >
-      <Text>
+      <div>
+        {/* <Text> */}
         {props.data.number}: {props.data.englishName}
-      </Text>
-      <span>
-        <Text>{props.data.name}</Text>
-      </span>
+        {/* </Text> */}
+      </div>
+      <div>
+        {/* <Text> */}
+        {props.data.name}
+        {/* </Text> */}
+      </div>
     </div>
   );
 };

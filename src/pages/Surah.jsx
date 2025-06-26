@@ -32,6 +32,7 @@ class Surah extends Component {
           style={{
             display: 'flex',
             justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
           <div>Surah</div>

@@ -33,7 +33,7 @@ body {
 header {
   background: linear-gradient(to bottom, #628d29, #264620);
   color: white;
-  height: 72px;
+  height: 64px;
   font-size: 28px;
   width: 100%;
   padding: 10px;
@@ -54,23 +54,9 @@ header .back-button img:hover {
   cursor: pointer;
 }
 header .detail-surah {
-  display: grid;
-  grid-template-areas: "surah surah" "ayat ayat" "juz revelation";
-}
-header .detail-surah .surah {
-  text-align: center;
-  grid-area: surah;
-}
-header .detail-surah .ayat {
-  grid-area: ayat;
-  text-align: center;
-  font-size: 16px;
-}
-header .detail-surah .juz {
-  grid-area: juz;
-}
-header .detail-surah .revelation {
-  grid-area: revelation;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 header .globe {
   display: flex;
@@ -89,20 +75,23 @@ header .globe img:hover {
   justify-content: center;
 }
 .image img {
-  width: 256px;
+  width: 232px;
 }
 
 .container {
-  margin-top: 72px;
+  margin-top: 64px;
 }
 
 .rows-surah {
-  background-color: #fdeec3;
-  padding: 20px 10px;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: hsl(44, 94%, 88%);
+  padding: 0px 8px;
+  height: 56px;
   border-bottom: 1px solid black;
   cursor: pointer;
-  font-size: 28px;
+  font-size: 24px;
 }
 .rows-surah:hover {
   background-color: #628d29;
@@ -113,10 +102,8 @@ header .globe img:hover {
 .rows-surah:last-child {
   border-bottom: 1px solid transparent;
 }
-.rows-surah span {
-  position: absolute;
-  font-size: 32px;
-  right: 5px;
+.rows-surah div:last-child {
+  font-size: 26px;
 }
 
 .bismillah {
@@ -145,33 +132,37 @@ header .globe img:hover {
   bottom: 0px;
 }
 .container-box-select .top-box-select {
-  height: 36px;
   background-color: #ebdaaf;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.container-box-select .top-box-select .filter-wrapper input {
-  border: none;
-  background-color: #ffffff;
-  width: 172px;
+.container-box-select .top-box-select .filter-wrapper .language-filter {
+  background-color: #fff;
   padding: 8px;
-  border-radius: 16px;
+  height: 32px;
+  border-radius: 14px;
+  width: 188px;
+  margin-top: 10px;
   margin-left: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
 }
 .container-box-select .top-box-select .cancel {
   display: inline-block;
+  align-self: self-start;
   margin-right: 16px;
+  margin-top: 20px;
   cursor: pointer;
 }
 .container-box-select .top-box-select .cancel span {
   display: block;
   background-color: #000000;
-  width: 20px;
-  height: 1.2px;
+  width: 26px;
+  height: 2px;
 }
 .container-box-select .top-box-select .cancel span:first-child {
-  transform: rotate(45deg) translate(1px, 0.5px);
+  transform: rotate(45deg) translate(1.9px, 0.8px);
 }
 .container-box-select .top-box-select .cancel span:last-child {
   transform: rotate(135deg);
@@ -185,11 +176,12 @@ header .globe img:hover {
   font-weight: 600;
 }
 .container-box-select .row-head .column {
-  text-align: center;
-  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .container-box-select .box {
-  height: 288px;
+  height: 274px;
   display: grid;
   grid-template-columns: 1fr;
   overflow-y: scroll;
@@ -198,19 +190,24 @@ header .globe img:hover {
 .container-box-select .box .menu-items {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding-block: 12px;
 }
 .container-box-select .box .menu-items:hover, .container-box-select .box .menu-items:active {
   background-color: #ebdaaf;
 }
 .container-box-select .box .menu-item {
-  text-align: center;
   font-size: 20px;
   cursor: pointer;
   transition: all 200ms;
-  margin-block: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.container-box-select .box .menu-item.clear {
+  padding-block: 12px;
+}
+.container-box-select .box .menu-item.clear:hover, .container-box-select .box .menu-item.clear:active {
+  background-color: #ebdaaf;
 }
 .container-box-select .box .menu-item::-moz-selection {
   background-color: transparent;
@@ -256,23 +253,25 @@ header .globe img:hover {
   width: 100%;
   border-bottom: 1px solid black;
   display: grid;
+  box-sizing: border-box;
   grid-template-columns: 1fr 1fr 10fr;
   grid-template-areas: "number audio ayat" "number transliteration transliteration";
 }
 .rows-ayat .ayat {
-  padding: 16px;
+  padding: 16px 8px;
   text-align: right;
-  line-height: 80px;
+  font-size: 28px;
 }
 .rows-ayat .transliteration {
   grid-area: transliteration;
   padding-left: 16px;
-  font-size: 16px;
+  font-size: 18px;
 }
 .rows-ayat div.numberAyat {
   background-color: #ebdaaf;
   grid-area: number;
-  width: 80px;
+  font-size: 26px;
+  padding-inline: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -359,19 +358,65 @@ body::-webkit-scrollbar-button {
 }
 
 @media (max-width: 767px) {
+  header {
+    font-size: 24px;
+    height: 56px;
+  }
+  .container {
+    margin-top: 56px;
+  }
   .rows-surah {
     background-color: #fdeec3;
-    padding: 20px 10px;
-    width: 100%;
+    padding: 0px 8px;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 20px;
   }
   .rows-surah:last-child {
     border-bottom: 1px solid transparent;
   }
-  .rows-surah span {
-    position: absolute;
-    font-size: 28px;
-    right: 5px;
+  .rows-surah div:last-child {
+    font-size: 22px;
+  }
+  .rows-ayat .ayat {
+    font-size: 24px;
+  }
+  .rows-ayat .transliteration {
+    font-size: 14px;
+  }
+  .rows-ayat div.numberAyat {
+    font-size: 22px;
+  }
+  .container-box-select .box {
+    height: 279px;
+  }
+  .container-box-select .top-box-select .filter-wrapper .language-filter {
+    padding: 12px 8px;
+    height: 24px;
+    width: 156px;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 12px;
+  }
+  .container-box-select .top-box-select .cancel span {
+    width: 24px;
+    height: 1.5px;
+  }
+  .container-box-select .top-box-select .cancel span:first-child {
+    transform: rotate(45deg) translate(1.5px, 0.8px);
+  }
+  .container-box-select .top-box-select .cancel span:last-child {
+    transform: rotate(135deg);
+  }
+  .container-box-select .row-head {
+    font-size: 16px;
+  }
+  .container-box-select .box .menu-items {
+    padding-block: 10px;
+  }
+  .container-box-select .box .menu-item {
+    font-size: 16px;
+  }
+  .image img {
+    width: 184px;
   }
 }/*# sourceMappingURL=App.css.map */
