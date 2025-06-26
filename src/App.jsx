@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/al-quran-vite">
       <Routes>
         <Route path="/" exact element={<Surah />} />
         <Route path="/surah/:number" element={<Ayat />} />

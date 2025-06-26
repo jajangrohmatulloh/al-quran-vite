@@ -1,8 +1,8 @@
 {
   "name": "al-quran",
   "private": true,
-  "version": "0.0.0",
-  "homepage": "/projects/al-quran",
+  "version": "1.0.1",
+  "homepage": "https://jajangrohmatulloh.github.io/al-quran-vite",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -16,7 +16,8 @@
     "react-dom": "^18.2.0",
     "react-router": "^6.7.0",
     "react-router-dom": "^6.7.0",
-    "react-transition-group": "^4.4.5"
+    "react-transition-group": "^4.4.5",
+    "vite-plugin-gh-pages": "^1.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
