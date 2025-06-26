@@ -464,7 +464,8 @@ body::-webkit-scrollbar-button {
 
   .rows-surah {
     background-color: #fdeec3;
-    padding: 0px 8px;
+    padding: 8px 8px;
+    height: 48px;
     cursor: pointer;
     font-size: 18px;
     &:last-child {
