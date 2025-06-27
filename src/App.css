@@ -149,7 +149,11 @@ header .globe img:hover {
   margin-top: 10px;
   margin-left: 10px;
   font-size: 16px;
+  border-bottom: none !important;
   box-sizing: border-box;
+}
+.container-box-select .top-box-select .filter-wrapper .language-filter:focus {
+  box-shadow: none !important;
 }
 .container-box-select .top-box-select .cancel {
   display: inline-block;

@@ -211,7 +211,7 @@ class Ayat extends Component {
         button: buttonPlay,
       },
       () => {
-        console.log(this.state.ayat);
+        // console.log(this.state.ayat);
         if (!buttonPlay.current.className.includes('false')) {
           this.audioRef.current.pause();
         } else {
@@ -233,7 +233,7 @@ class Ayat extends Component {
     }
     this.setState({ number: ++this.state.number }, () => {
       this.audioRef.current.play();
-      console.log(this.state.button);
+      // console.log(this.state.button);
     });
   };
 

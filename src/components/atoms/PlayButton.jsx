@@ -15,7 +15,12 @@ const PlayButton = (props) => {
     if (props.currentNumber == props.number) {
       const rowAyat =
         audioButtonRef.current.parentElement.parentElement.parentElement;
-      window.scrollTo({ top: rowAyat.offsetTop - 72, behavior: 'smooth' });
+
+      const scrollOffset = window.innerWidth > 767 ? 64 : 56;
+      window.scrollTo({
+        top: rowAyat.offsetTop - scrollOffset,
+        behavior: 'smooth',
+      });
     }
     const isSame = props.currentNumber == props.number;
     setIsMatch(isSame);

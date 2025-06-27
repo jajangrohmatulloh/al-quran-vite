@@ -189,7 +189,11 @@ header {
         margin-top: 10px;
         margin-left: 10px;
         font-size: 16px;
+        border-bottom: none !important;
         box-sizing: border-box;
+        &:focus {
+          box-shadow: none !important;
+        }
       }
     }
     .cancel {
@@ -486,7 +490,6 @@ body::-webkit-scrollbar-button {
       font-size: 24px;
       font-weight: 600;
     }
-
     .transliteration {
       font-size: 14px;
     }
