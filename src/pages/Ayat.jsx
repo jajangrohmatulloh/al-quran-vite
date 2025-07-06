@@ -4,6 +4,7 @@ import globe from '../assets/icons/globe.svg';
 import Loader from '../components/atoms/Loader';
 import RowAyat from '../components/atoms/RowAyat';
 import withRouter from './withRouter';
+import { isArabic } from '../utils';
 
 class Ayat extends Component {
   constructor(props) {
@@ -370,7 +371,12 @@ class Ayat extends Component {
                             {e.language}
                           </div>
 
-                          <div className="menu-item" data-id={e.identifier}>
+                          <div
+                            className={`menu-item ${
+                              isArabic(e.name) ? 'arabic' : 'non-arabic'
+                            }`}
+                            data-id={e.identifier}
+                          >
                             {e.name}
                           </div>
                         </div>

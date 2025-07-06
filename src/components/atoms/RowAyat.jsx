@@ -2,6 +2,7 @@ import React from 'react';
 import PlayButton from './PlayButton';
 import DetailAyat from './DetailAyat';
 import TextAyat from './TextAyat';
+import { isArabic } from '../../utils';
 
 const RowAyat = (props) => {
   function toFarsiNumber(n) {
@@ -10,9 +11,6 @@ const RowAyat = (props) => {
     return n.toString().replace(/\d/g, (x) => farsiDigits[x]);
   }
 
-  function isArabic(text) {
-    return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/.test(text);
-  }
   return (
     <>
       {props.ayat.number !== 1 &&
@@ -50,12 +48,9 @@ const RowAyat = (props) => {
               <br></br>
               <br></br>
               <span
-                style={{
-                  fontWeight: isArabic(props.translation.text)
-                    ? 'bold'
-                    : 'normal',
-                  fontSize: isArabic(props.translation.text) ? '20px' : '16px',
-                }}
+                className={
+                  isArabic(props.translation.text) ? 'arabic' : 'non-arabic'
+                }
               >
                 {props.translation.text}
               </span>
