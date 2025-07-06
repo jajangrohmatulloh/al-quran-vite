@@ -6,8 +6,12 @@ import TextAyat from './TextAyat';
 const RowAyat = (props) => {
   function toFarsiNumber(n) {
     const farsiDigits = ['۰', '۱', '۲', '۳', '٤', '۵', '٦', '۷', '۸', '۹'];
-
+    z;
     return n.toString().replace(/\d/g, (x) => farsiDigits[x]);
+  }
+
+  function isArabic(text) {
+    return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/.test(text);
   }
   return (
     <>
@@ -45,7 +49,16 @@ const RowAyat = (props) => {
             <>
               <br></br>
               <br></br>
-              {props.translation.text}
+              <span
+                style={{
+                  fontWeight: isArabic(props.translation.text)
+                    ? 'bold'
+                    : 'normal',
+                  fontSize: isArabic(props.translation.text) ? '20px' : '16px',
+                }}
+              >
+                {props.translation.text}
+              </span>
             </>
           )}
         </div>

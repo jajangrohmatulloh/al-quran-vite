@@ -19,11 +19,11 @@
   height: 24px;
   border: 12px solid transparent;
   border-right: 0px solid transparent;
-  border-left: 20px solid black;
+  border-left: 20px solid #00a659;
   transition: border 300ms ease;
 }
 
 .audio--pause {
   border: 0px solid transparent;
-  border-left: 20px double black;
+  border-left: 20px double #00a659;
 }

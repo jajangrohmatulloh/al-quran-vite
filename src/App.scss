@@ -1,3 +1,8 @@
+$emerald-green: #00a659;
+$dark-charcoal: #1f2937;
+$dark-green: #0f4f31;
+$charcoal: #374151;
+
 @font-face {
   font-family: Kitab;
   src: url(assets/fonts/Kitab-Regular.ttf);
@@ -23,8 +28,13 @@ body {
   margin: 0;
   font-family: Kitab, serif;
   font-size: 28px;
-  background-color: #fdeec3;
+  background-color: $dark-charcoal;
   overflow-x: hidden;
+  color: #fff;
+  &::selection {
+    background-color: $emerald-green;
+    color: #fff;
+  }
 }
 
 .fade {
@@ -37,8 +47,8 @@ body {
 }
 
 header {
-  background: linear-gradient(to bottom, #628d29, #264620);
-  color: white;
+  background-color: $emerald-green;
+  color: #fff;
   // text-align: center;
   height: 64px;
   font-size: 28px;
@@ -50,6 +60,11 @@ header {
   overflow-y: hidden;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
+
+  &::selection {
+    background-color: $dark-charcoal;
+    // color: $emerald-green;
+  }
 
   .back-button {
     display: flex;
@@ -107,6 +122,7 @@ header {
   display: flex;
   justify-content: center;
   img {
+    filter: invert(100%);
     width: 232px;
   }
 }
@@ -119,18 +135,18 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: hsl(44, 94%, 88%);
+  background-color: $dark-charcoal;
   padding: 0px 8px;
   height: 56px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid $charcoal;
   cursor: pointer;
   font-size: 24px;
 
   &:hover {
-    background-color: #628d29;
-    color: white;
+    background-color: $emerald-green;
+    color: #ffffff;
     transition: all 100ms ease;
-    border-color: #628d29;
+    border-color: $emerald-green;
   }
 
   &:last-child {
@@ -145,7 +161,7 @@ header {
 
 .bismillah {
   display: flex;
-  width: 80%;
+  // width: 100%;
   margin: auto;
   flex-direction: row;
   justify-content: center;
@@ -154,7 +170,7 @@ header {
   font-size: 28px;
   font-weight: 600;
   // border-bottom: 1px solid black;
-  background-color: #fdeec3;
+  background-color: $dark-charcoal;
 }
 
 .container-box-select {
@@ -165,7 +181,7 @@ header {
   height: 360px;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
-  background-color: #fdeec3;
+  background-color: $dark-charcoal;
   overflow: hidden;
   transition: all 250ms;
   &.appear {
@@ -174,14 +190,15 @@ header {
   .top-box-select {
     // height: 36px;
     // padding-: 10px;
-    background-color: #ebdaaf;
+    background-color: $emerald-green;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     .filter-wrapper {
       .language-filter {
-        background-color: #fff;
+        color: #fff;
+        background-color: $dark-charcoal;
         padding: 10px;
         height: 32px;
         border-radius: 14px;
@@ -204,7 +221,7 @@ header {
       cursor: pointer;
       span {
         display: block;
-        background-color: #000000;
+        background-color: #fff;
         width: 26px;
         height: 2px;
         &:first-child {
@@ -219,7 +236,7 @@ header {
 
   .row-head {
     height: 36px;
-    background-color: #ebdaaf;
+    background-color: $emerald-green;
     display: grid;
     grid-template-columns: 1fr 1fr;
     font-size: 20px;
@@ -243,17 +260,21 @@ header {
     // padding-bottom: 64px;
     // margin-bottom: 64px;
 
+    &::-webkit-scrollbar {
+      width: 16px;
+    }
+
     .clear {
-      // grid-area: clear;
     }
 
     .menu-items {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      padding-block: 10px;
+      padding-block: 16px;
+      user-select: none;
       &:hover,
       &:active {
-        background-color: #ebdaaf;
+        background-color: $emerald-green;
       }
     }
 
@@ -266,16 +287,15 @@ header {
       align-items: center;
 
       &.clear {
-        padding-block: 12px;
+        padding-block: 16px;
         &:hover,
         &:active {
-          background-color: #ebdaaf;
+          background-color: $emerald-green;
         }
       }
 
       &::selection {
         background-color: transparent;
-        color: #000000;
       }
 
       &.menu-item-active {
@@ -305,21 +325,21 @@ header {
       height: 24px;
       border: 12px solid transparent;
       border-right: 0px solid transparent;
-      border-left: 20px solid black;
+      border-left: 20px solid $emerald-green;
       transition: border 300ms ease;
 
       &.pause {
         border: 0px solid transparent;
-        border-left: 20px double black;
+        border-left: 20px double $emerald-green;
       }
     }
   }
 }
 
 .rows-ayat {
-  background-color: #fdeec3;
+  background-color: $dark-charcoal;
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid $charcoal;
   // line-height: 100px;
   display: grid;
   box-sizing: border-box;
@@ -341,19 +361,20 @@ header {
     padding-left: 16px;
     padding-block: 8px;
     line-height: 22px;
-    font-size: 18px;
+    font-size: 20px;
   }
 
   div.numberAyat {
-    background-color: #ebdaaf;
+    background-color: $dark-green;
     grid-area: number;
+    width: 80px;
     font-size: 26px;
     // border-right: 1px solid black;
     // height: 100%;
     // text-align: center;
     // display: table-cell;
     // vertical-align: center;
-    padding-inline: 8px;
+    // padding-inline: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -420,21 +441,23 @@ body::-webkit-scrollbar {
   background-color: transparent;
 }
 
-body::-webkit-scrollbar-track {
-  background-color: #fdeec3;
+body::-webkit-scrollbar-track,
+.box::-webkit-scrollbar-track {
+  background-color: $dark-charcoal;
 }
 
-body::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #628d29, #2a4a21);
-  border-radius: 10px;
-  height: 30px;
-  box-shadow: 0 -100vh 0 100vh #2a4a21;
+body::-webkit-scrollbar-thumb,
+.box::-webkit-scrollbar-thumb {
+  background-color: $emerald-green;
+  // border-radius: 10px;
+  height: 32px;
+  // box-shadow: 0 -100vh 0 9vh $emerald-green;
 }
 
 body::-webkit-scrollbar-button {
   // background-color: #628D29;
   // background: linear-gradient(to bottom, #2A4A21, #628D29);
-  background-color: #2a4a21;
+  // background-color: #2a4a21;
 }
 
 .fade-exit {
@@ -487,16 +510,15 @@ body::-webkit-scrollbar-button {
 
   .rows-ayat {
     .ayat {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 600;
     }
     .transliteration {
-      font-size: 14px;
+      font-size: 16px;
     }
-    x div.numberAyat {
-      font-size: 24px;
+    div.numberAyat {
       width: 56px;
-      padding-inline: 8px;
+      font-size: 24px;
     }
   }
 
@@ -533,7 +555,7 @@ body::-webkit-scrollbar-button {
     }
     .box {
       .menu-items {
-        padding-block: 8px;
+        padding-block: 18px;
       }
       .menu-item {
         font-size: 16px;

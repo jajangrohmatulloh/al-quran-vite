@@ -356,23 +356,29 @@ class Ayat extends Component {
               Clear Translate
             </div>
             {this.state.isFetched &&
-              this.state.translateFilter.map((e) => (
-                <>
-                  <div
-                    className="menu-items group"
-                    data-id={e.identifier}
-                    onClick={(e) => this.handleTranslate(e)}
-                  >
-                    <div className="menu-item" data-id={e.identifier}>
-                      {e.language}
-                    </div>
+              this.state.translateFilter.map((e) => {
+                {
+                  return (
+                    e.language !== 'Arabic' && (
+                      <>
+                        <div
+                          className="menu-items group"
+                          data-id={e.identifier}
+                          onClick={(e) => this.handleTranslate(e)}
+                        >
+                          <div className="menu-item" data-id={e.identifier}>
+                            {e.language}
+                          </div>
 
-                    <div className="menu-item" data-id={e.identifier}>
-                      {e.name}
-                    </div>
-                  </div>
-                </>
-              ))}
+                          <div className="menu-item" data-id={e.identifier}>
+                            {e.name}
+                          </div>
+                        </div>
+                      </>
+                    )
+                  );
+                }
+              })}
           </div>
         </div>
         <div

@@ -17,8 +17,17 @@ body {
   margin: 0;
   font-family: Kitab, serif;
   font-size: 28px;
-  background-color: #fdeec3;
+  background-color: #1f2937;
   overflow-x: hidden;
+  color: #fff;
+}
+body::-moz-selection {
+  background-color: #00a659;
+  color: #fff;
+}
+body::selection {
+  background-color: #00a659;
+  color: #fff;
 }
 
 .fade {
@@ -31,8 +40,8 @@ body {
 }
 
 header {
-  background: linear-gradient(to bottom, #628d29, #264620);
-  color: white;
+  background-color: #00a659;
+  color: #fff;
   height: 64px;
   font-size: 28px;
   width: 100%;
@@ -43,6 +52,12 @@ header {
   overflow-y: hidden;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
+}
+header::-moz-selection {
+  background-color: #1f2937;
+}
+header::selection {
+  background-color: #1f2937;
 }
 header .back-button {
   display: flex;
@@ -75,6 +90,7 @@ header .globe img:hover {
   justify-content: center;
 }
 .image img {
+  filter: invert(100%);
   width: 232px;
 }
 
@@ -86,18 +102,18 @@ header .globe img:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: hsl(44, 94%, 88%);
+  background-color: #1f2937;
   padding: 0px 8px;
   height: 56px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #374151;
   cursor: pointer;
   font-size: 24px;
 }
 .rows-surah:hover {
-  background-color: #628d29;
-  color: white;
+  background-color: #00a659;
+  color: #ffffff;
   transition: all 100ms ease;
-  border-color: #628d29;
+  border-color: #00a659;
 }
 .rows-surah:last-child {
   border-bottom: 1px solid transparent;
@@ -109,14 +125,13 @@ header .globe img:hover {
 
 .bismillah {
   display: flex;
-  width: 80%;
   margin: auto;
   flex-direction: row;
   justify-content: center;
   padding: 16px 8px;
   font-size: 28px;
   font-weight: 600;
-  background-color: #fdeec3;
+  background-color: #1f2937;
 }
 
 .container-box-select {
@@ -127,7 +142,7 @@ header .globe img:hover {
   height: 360px;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
-  background-color: #fdeec3;
+  background-color: #1f2937;
   overflow: hidden;
   transition: all 250ms;
 }
@@ -135,13 +150,14 @@ header .globe img:hover {
   bottom: 0px;
 }
 .container-box-select .top-box-select {
-  background-color: #ebdaaf;
+  background-color: #00a659;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .container-box-select .top-box-select .filter-wrapper .language-filter {
-  background-color: #fff;
+  color: #fff;
+  background-color: #1f2937;
   padding: 10px;
   height: 32px;
   border-radius: 14px;
@@ -164,7 +180,7 @@ header .globe img:hover {
 }
 .container-box-select .top-box-select .cancel span {
   display: block;
-  background-color: #000000;
+  background-color: #fff;
   width: 26px;
   height: 2px;
 }
@@ -176,7 +192,7 @@ header .globe img:hover {
 }
 .container-box-select .row-head {
   height: 36px;
-  background-color: #ebdaaf;
+  background-color: #00a659;
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-size: 20px;
@@ -194,13 +210,19 @@ header .globe img:hover {
   overflow-y: scroll;
   overflow-x: hidden;
 }
+.container-box-select .box::-webkit-scrollbar {
+  width: 16px;
+}
 .container-box-select .box .menu-items {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding-block: 10px;
+  padding-block: 16px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .container-box-select .box .menu-items:hover, .container-box-select .box .menu-items:active {
-  background-color: #ebdaaf;
+  background-color: #00a659;
 }
 .container-box-select .box .menu-item {
   font-size: 20px;
@@ -211,18 +233,16 @@ header .globe img:hover {
   align-items: center;
 }
 .container-box-select .box .menu-item.clear {
-  padding-block: 12px;
+  padding-block: 16px;
 }
 .container-box-select .box .menu-item.clear:hover, .container-box-select .box .menu-item.clear:active {
-  background-color: #ebdaaf;
+  background-color: #00a659;
 }
 .container-box-select .box .menu-item::-moz-selection {
   background-color: transparent;
-  color: #000000;
 }
 .container-box-select .box .menu-item::selection {
   background-color: transparent;
-  color: #000000;
 }
 .container-box-select .box .menu-item.menu-item-active {
   scale: 1.2;
@@ -247,18 +267,18 @@ header .globe img:hover {
   height: 24px;
   border: 12px solid transparent;
   border-right: 0px solid transparent;
-  border-left: 20px solid black;
+  border-left: 20px solid #00a659;
   transition: border 300ms ease;
 }
 .container-audio .circle .play.pause {
   border: 0px solid transparent;
-  border-left: 20px double black;
+  border-left: 20px double #00a659;
 }
 
 .rows-ayat {
-  background-color: #fdeec3;
+  background-color: #1f2937;
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #374151;
   display: grid;
   box-sizing: border-box;
   grid-template-columns: 1fr 1fr 10fr;
@@ -275,13 +295,13 @@ header .globe img:hover {
   padding-left: 16px;
   padding-block: 8px;
   line-height: 22px;
-  font-size: 18px;
+  font-size: 20px;
 }
 .rows-ayat div.numberAyat {
-  background-color: #ebdaaf;
+  background-color: #0f4f31;
   grid-area: number;
+  width: 80px;
   font-size: 26px;
-  padding-inline: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -333,19 +353,15 @@ body::-webkit-scrollbar {
   background-color: transparent;
 }
 
-body::-webkit-scrollbar-track {
-  background-color: #fdeec3;
+body::-webkit-scrollbar-track,
+.box::-webkit-scrollbar-track {
+  background-color: #1f2937;
 }
 
-body::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #628d29, #2a4a21);
-  border-radius: 10px;
-  height: 30px;
-  box-shadow: 0 -100vh 0 100vh #2a4a21;
-}
-
-body::-webkit-scrollbar-button {
-  background-color: #2a4a21;
+body::-webkit-scrollbar-thumb,
+.box::-webkit-scrollbar-thumb {
+  background-color: #00a659;
+  height: 32px;
 }
 
 .fade-exit {
@@ -393,16 +409,15 @@ body::-webkit-scrollbar-button {
     padding: 12px 8px;
   }
   .rows-ayat .ayat {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 600;
   }
   .rows-ayat .transliteration {
-    font-size: 14px;
+    font-size: 16px;
   }
-  .rows-ayat x div.numberAyat {
-    font-size: 24px;
+  .rows-ayat div.numberAyat {
     width: 56px;
-    padding-inline: 8px;
+    font-size: 24px;
   }
   .container-box-select .box {
     height: 279px;
@@ -429,7 +444,7 @@ body::-webkit-scrollbar-button {
     font-size: 16px;
   }
   .container-box-select .box .menu-items {
-    padding-block: 8px;
+    padding-block: 18px;
   }
   .container-box-select .box .menu-item {
     font-size: 16px;
