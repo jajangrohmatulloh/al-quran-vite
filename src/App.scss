@@ -31,6 +31,22 @@ $charcoal: #464b4f;
   box-sizing: border-box;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:focus {
+    background-color: transparent;
+  }
+
+  &:hover {
+    opacity: 0.4;
+  }
+}
+
 body {
   margin: 0;
   font-family: Figtree, serif;
@@ -72,14 +88,13 @@ header {
     background-color: $dark;
     // color: $emerald-green;
   }
-
   .back-button {
     display: flex;
     justify-content: left;
     align-items: center;
-    img:hover {
-      opacity: 40%;
-      cursor: pointer;
+    img {
+      width: 32px;
+      height: 32px;
     }
   }
 
@@ -116,9 +131,9 @@ header {
     justify-content: right;
     align-items: center;
 
-    img:hover {
-      opacity: 40%;
-      cursor: pointer;
+    img {
+      width: 32px;
+      height: 32px;
     }
   }
 }
@@ -148,7 +163,7 @@ header {
   line-height: 0px;
   border-bottom: 2px solid $charcoal;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 20px;
 
   &:hover {
     background-color: $emerald-green;
@@ -224,30 +239,11 @@ header {
     }
     .cancel {
       display: inline-block;
-      align-self: self-start;
-      // background-color: red;
-      height: 32px;
-      width: 32px;
       cursor: pointer;
-      &:hover {
-        opacity: 0.5;
-      }
-      span {
-        display: block;
-        background-color: #fff;
-        width: 26px;
-        height: 2px;
-        margin: auto;
-        margin-top: 8px;
-        transform-origin: center;
-        &:first-child {
-          // transform: rotate(45deg) translate(4px, 4px);
-          transform: rotate(45deg) translate(5px, 4px);
-        }
-        &:last-child {
-          // transform: rotate(135deg) translate(-2px, 2px);
-          transform: rotate(-45deg) translate(2px, -2px);
-        }
+
+      img {
+        width: 24px;
+        height: 24px;
       }
     }
   }
@@ -367,13 +363,17 @@ header {
   // line-height: 100px;
   display: grid;
   box-sizing: border-box;
-  grid-template-columns: 1fr 1fr 10fr;
+  grid-template-columns: 0.1fr 1fr 10fr;
   grid-template-areas:
     'number audio ayat'
     'number transliteration transliteration';
 
+  &:last-child {
+    border-bottom: 1px solid transparent;
+  }
+
   .ayat {
-    padding: 16px 8px;
+    padding: 16px 10px;
     text-align: right;
     font-family: Kitab, serif;
     // line-height: 80px;
@@ -384,7 +384,7 @@ header {
   .transliteration {
     color: #d0d0d0;
     grid-area: transliteration;
-    padding-left: 16px;
+    padding-inline: 10px;
     padding-block: 8px;
     line-height: 22px;
     font-size: 18.8px;
@@ -524,6 +524,10 @@ body::-webkit-scrollbar-button {
   header {
     font-size: 24px;
     height: 56px;
+    img {
+      width: 30px !important;
+      height: 30px !important;
+    }
   }
 
   .container {
@@ -581,17 +585,9 @@ body::-webkit-scrollbar-button {
         }
       }
       .cancel {
-        span {
-          width: 24px;
-          height: 1.5px;
-          &:first-child {
-            // transform: rotate(45deg) translate(1.5px, 0.8px);
-            transform: rotate(45deg) translate(5px, 4px);
-          }
-          &:last-child {
-            transform: rotate(-45deg) translate(2px, -2px);
-            // transform: rotate(135deg);
-          }
+        img {
+          width: 22px;
+          height: 22px;
         }
       }
     }

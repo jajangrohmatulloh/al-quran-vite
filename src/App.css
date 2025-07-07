@@ -18,6 +18,21 @@
   box-sizing: border-box;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button:focus {
+  background-color: transparent;
+}
+button:hover {
+  opacity: 0.4;
+}
+
 body {
   margin: 0;
   font-family: Figtree, serif;
@@ -69,9 +84,9 @@ header .back-button {
   justify-content: left;
   align-items: center;
 }
-header .back-button img:hover {
-  opacity: 40%;
-  cursor: pointer;
+header .back-button img {
+  width: 32px;
+  height: 32px;
 }
 header .detail-surah {
   display: flex;
@@ -83,9 +98,9 @@ header .globe {
   justify-content: right;
   align-items: center;
 }
-header .globe img:hover {
-  opacity: 40%;
-  cursor: pointer;
+header .globe img {
+  width: 32px;
+  height: 32px;
 }
 
 .image {
@@ -113,7 +128,7 @@ header .globe img:hover {
   line-height: 0px;
   border-bottom: 2px solid #464b4f;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 20px;
 }
 .rows-surah:hover {
   background-color: #00a659;
@@ -178,28 +193,11 @@ header .globe img:hover {
 }
 .container-box-select .top-box-select .cancel {
   display: inline-block;
-  align-self: self-start;
-  height: 32px;
-  width: 32px;
   cursor: pointer;
 }
-.container-box-select .top-box-select .cancel:hover {
-  opacity: 0.5;
-}
-.container-box-select .top-box-select .cancel span {
-  display: block;
-  background-color: #fff;
-  width: 26px;
-  height: 2px;
-  margin: auto;
-  margin-top: 8px;
-  transform-origin: center;
-}
-.container-box-select .top-box-select .cancel span:first-child {
-  transform: rotate(45deg) translate(5px, 4px);
-}
-.container-box-select .top-box-select .cancel span:last-child {
-  transform: rotate(-45deg) translate(2px, -2px);
+.container-box-select .top-box-select .cancel img {
+  width: 24px;
+  height: 24px;
 }
 .container-box-select .row-head {
   height: 36px;
@@ -296,11 +294,14 @@ header .globe img:hover {
   border-bottom: 2px solid #464b4f;
   display: grid;
   box-sizing: border-box;
-  grid-template-columns: 1fr 1fr 10fr;
+  grid-template-columns: 0.1fr 1fr 10fr;
   grid-template-areas: "number audio ayat" "number transliteration transliteration";
 }
+.rows-ayat:last-child {
+  border-bottom: 1px solid transparent;
+}
 .rows-ayat .ayat {
-  padding: 16px 8px;
+  padding: 16px 10px;
   text-align: right;
   font-family: Kitab, serif;
   font-size: 34px;
@@ -309,7 +310,7 @@ header .globe img:hover {
 .rows-ayat .transliteration {
   color: #d0d0d0;
   grid-area: transliteration;
-  padding-left: 16px;
+  padding-inline: 10px;
   padding-block: 8px;
   line-height: 22px;
   font-size: 18.8px;
@@ -418,6 +419,10 @@ body::-webkit-scrollbar-thumb,
     font-size: 24px;
     height: 56px;
   }
+  header img {
+    width: 30px !important;
+    height: 30px !important;
+  }
   .container {
     margin-top: 56px;
   }
@@ -460,15 +465,9 @@ body::-webkit-scrollbar-thumb,
     width: 156px;
     font-size: 14px;
   }
-  .container-box-select .top-box-select .cancel span {
-    width: 24px;
-    height: 1.5px;
-  }
-  .container-box-select .top-box-select .cancel span:first-child {
-    transform: rotate(45deg) translate(5px, 4px);
-  }
-  .container-box-select .top-box-select .cancel span:last-child {
-    transform: rotate(-45deg) translate(2px, -2px);
+  .container-box-select .top-box-select .cancel img {
+    width: 22px;
+    height: 22px;
   }
   .container-box-select .row-head {
     font-size: 18px;

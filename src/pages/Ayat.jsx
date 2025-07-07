@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import backButton from '../assets/icons/back-button.svg';
+import left from '../assets/icons/left.svg';
 import globe from '../assets/icons/globe.svg';
+import cancelButton from '../assets/icons/cancel.svg';
 import Loader from '../components/atoms/Loader';
 import RowAyat from '../components/atoms/RowAyat';
 import withRouter from './withRouter';
@@ -42,6 +43,17 @@ class Ayat extends Component {
             });
           });
       });
+
+    fetch(
+      `https://api.alquran.cloud/v1/surah/${this.props.params.number}/id.indonesian`
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          translation: res.data.ayahs,
+        });
+      });
+
     fetch(`https://api.alquran.cloud/v1/edition/type/translation`)
       .then((res) => res.json())
       .then((res) => {
@@ -289,7 +301,7 @@ class Ayat extends Component {
   handleFilter = (event) => {
     this.setState({
       translateFilter: this.state.translate.filter((val) =>
-        val.language.toLowerCase().includes(event.target.value.toLowerCase())
+        val.language.toLowerCase().startsWith(event.target.value.toLowerCase())
       ),
     });
   };
@@ -299,17 +311,17 @@ class Ayat extends Component {
       <>
         <header>
           <div className="back-button">
-            <img
-              src={backButton}
-              alt=""
-              onClick={() => this.props.navigate('/')}
-            />
+            <button onClick={() => this.props.navigate('/')}>
+              <img src={left} alt="" />
+            </button>
           </div>
           <div className="detail-surah">
             <div className="surah">{this.state.lists.englishName}</div>
           </div>
           <div className="globe">
-            <img src={globe} alt="" onClick={this.handleGlobe} />
+            <button onClick={this.handleGlobe}>
+              <img src={globe} alt="" />
+            </button>
           </div>
         </header>
         <div className="container" ref={this.containerSurah}>
@@ -340,9 +352,14 @@ class Ayat extends Component {
                 onChange={this.handleFilter}
               />
             </div>
-            <div className="cancel" onClick={this.handleCancel}>
+            {/* <div className="cancel" onClick={this.handleCancel}>
               <span></span>
               <span></span>
+            </div> */}
+            <div className="cancel">
+              <button onClick={this.handleCancel}>
+                <img src={cancelButton} />
+              </button>
             </div>
           </div>
           <div className="row-head">
