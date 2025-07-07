@@ -9,6 +9,7 @@ const DetailAyat = (props) => {
   return (
     <div className="numberAyat">
       <span>
+        {/* {props.ayat}:{props.numberInSurah} */}
         {toFarsiNumber(props.ayat)}:{toFarsiNumber(props.numberInSurah)}
       </span>
     </div>

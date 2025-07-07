@@ -12,7 +12,7 @@ const RowSurah = (props) => {
         {props.data.number}: {props.data.englishName}
         {/* </Text> */}
       </div>
-      <div>
+      <div className="arabic">
         {/* <Text> */}
         {props.data.name}
         {/* </Text> */}

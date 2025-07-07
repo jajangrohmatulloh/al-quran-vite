@@ -7,7 +7,6 @@ import { isArabic } from '../../utils';
 const RowAyat = (props) => {
   function toFarsiNumber(n) {
     const farsiDigits = ['۰', '۱', '۲', '۳', '٤', '۵', '٦', '۷', '۸', '۹'];
-    z;
     return n.toString().replace(/\d/g, (x) => farsiDigits[x]);
   }
 
@@ -16,7 +15,7 @@ const RowAyat = (props) => {
       {props.ayat.number !== 1 &&
         props.ayat.number !== 1236 &&
         props.ayat.numberInSurah === 1 && (
-          <div className="bismillah">
+          <div className="bismillah arabic">
             <TextAyat
               isBismillah={true}
               text={props.ayat.text.substring(0, 38)}
