@@ -21,6 +21,7 @@
 button {
   background-color: transparent;
   border: none;
+  padding: 0px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -161,7 +162,7 @@ header .globe img {
   height: 360px;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
-  background-color: #1f2125;
+  background-color: #00a659;
   overflow: hidden;
   transition: all 250ms;
 }
@@ -169,8 +170,7 @@ header .globe img {
   bottom: 0px;
 }
 .container-box-select .top-box-select {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-inline: 10px;
   padding-top: 6px;
   background-color: #00a659;
   display: flex;
@@ -215,6 +215,7 @@ header .globe img {
 .container-box-select .box {
   height: 274px;
   display: grid;
+  background-color: #1f2125;
   grid-template-columns: 1fr;
   overflow-y: scroll;
   overflow-x: hidden;

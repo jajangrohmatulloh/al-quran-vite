@@ -34,6 +34,7 @@ $charcoal: #464b4f;
 button {
   background-color: transparent;
   border: none;
+  padding: 0px;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -203,7 +204,7 @@ header {
   height: 360px;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
-  background-color: $dark;
+  background-color: $emerald-green;
   overflow: hidden;
   transition: all 250ms;
   &.appear {
@@ -211,8 +212,7 @@ header {
   }
   .top-box-select {
     // height: 36px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-inline: 10px;
     padding-top: 6px;
     background-color: $emerald-green;
     display: flex;
@@ -240,7 +240,6 @@ header {
     .cancel {
       display: inline-block;
       cursor: pointer;
-
       img {
         width: 24px;
         height: 24px;
@@ -265,6 +264,7 @@ header {
   .box {
     height: 274px;
     display: grid;
+    background-color: $dark;
     grid-template-columns: 1fr;
     // grid-template-areas:
     //   'clear clear'
